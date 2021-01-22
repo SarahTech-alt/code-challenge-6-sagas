@@ -1,37 +1,37 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AnimalListItem from '../AnimalListItem/AnimalListItem';
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE!
 
-class AnimalList extends Component {
+function AnimalList() {
+  const dispatch = useDispatch();
+  let zooAnimals = useSelector(store => store.zooAnimals);
 
-    componentDidMount() {
-        const action = {type: 'GET_ZOO_ANIMALS'};
-        this.props.dispatch(action);
-    }
+  // on load, dispatch the saga action
+  useEffect(() => {
+    console.log('in useEffect');
+    const action = { type: 'GET_ZOO_ANIMALS' };
+    dispatch(action);
+  }, []);
 
-    // Renders the list of animals
-    render() {
-        return (
-            <table className="AnimalList">
-                <thead>
-                    <tr><th>Species</th><th>Class</th></tr>
-                </thead>
-                <tbody>
-                    {/* Render each item from the zooAnimal reducer */}
-                    {this.props.reduxState.zooAnimals.map((classData, i) => {
-                        return (<AnimalListItem key={i} classData={classData} />);
-                    })}
-                </tbody>
-            </table>
-        );
-    }
+  // Renders the list of animals
+  return (
+    <table className='AnimalList'>
+      <thead>
+        <tr>
+          <th>Species</th>
+          <th>Class</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/* Render each item from the zooAnimal reducer */}
+        {zooAnimals.map((classData, i) => {
+          return <AnimalListItem key={i} classData={classData} />;
+        })}
+      </tbody>
+    </table>
+  );
 }
 
-// Makes our reducers available in our component
-const mapReduxStateToProps = (reduxState) => ({
-    reduxState
-});
-
-export default connect(mapReduxStateToProps)(AnimalList);
+export default AnimalList;
