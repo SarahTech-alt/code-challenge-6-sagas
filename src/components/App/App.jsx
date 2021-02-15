@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import AnimalList from '../AnimalList/AnimalList'
 import './App.css';
 
-class App extends Component {
+function App() {
   // Renders the entire app on the DOM
-  render() {
-    return (
+      return (
       <div className="App">
         <header>
           <h1>Zoo Animals</h1>
@@ -16,7 +14,6 @@ class App extends Component {
         <AnimalList />
       </div>
     );
-  }
 }
 
 export default App;
