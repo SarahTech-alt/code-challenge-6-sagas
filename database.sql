@@ -1,13 +1,13 @@
 -- Database: zoo_animals
 
 CREATE TABLE "class" (
-    "id" serial PRIMARY KEY,
-    "class_name" varchar(255) NOT NULL
+    "id" serial PRIMARY KEY,
+    "class_name" varchar(255) NOT NULL
 );
 
 CREATE TABLE "species" (
-    "id" serial PRIMARY KEY,
-    "species_name" varchar(255) NOT NULL,
+    "id" serial PRIMARY KEY,
+    "species_name" varchar(255) NOT NULL,
     "class_id" int REFERENCES "class"
 );
 
