@@ -30,6 +30,7 @@ function AnimalList() {
             return <AnimalListItem key={i} classData={classData} />;
         })}
       </tbody>
+      <button onClick={event=> history.push(/addAnimal)}>Add Animal</button>
     </table>
   );
 }
