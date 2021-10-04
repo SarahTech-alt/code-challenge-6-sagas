@@ -15,6 +15,20 @@ import axios from 'axios';
 function* rootSaga() {
     // YOUR CODE HERE
     yield takeEvery('GET_ZOO_ANIMALS', fetchZooAnimals);
+    yield takeEvery('ADD_NEW_ANIMAL', addNewAnimal);
+}
+
+function* addNewAnimal(action) {
+    try {
+        const animalToAdd = action.payload;
+        console.log(action.payload);
+        yield axios.post('/', animalToAdd);
+        yield put('GET_ZOO_ANIMALS')
+    } catch {
+        (error) => {
+            console.log('There was an error adding animal', error)
+        }
+    }
 }
 
 function* fetchZooAnimals() {
