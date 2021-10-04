@@ -18,8 +18,8 @@ const history = useHistory();
   // on load, dispatch the saga action
   useEffect(() => {
     console.log('in useEffect');
-    const action = { type: 'GET_ZOO_ANIMALS' };
-    dispatch(action);
+    dispatch({ type: 'GET_ZOO_ANIMALS' });
+    
   }, []);
 
   // Renders the list of animals

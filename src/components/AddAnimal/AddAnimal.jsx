@@ -15,20 +15,20 @@ function AddAnimal() {
     // to useHistory module from react
     const history = useHistory();
     const dispatch = useDispatch();
-    
+
     const [animalToAdd, setAnimalToAdd] = useState({
         species_name: '',
         class_name: ''
 
     })
 
-    const className = {
+    const classOfAnimal = {
         Mammal: 1,
         Bird: 2,
         Fish: 3,
         Reptile: 4,
         Amphibian: 5,
-    }
+    };
 
     const postNewAnimal = () => {
         dispatch({
@@ -66,11 +66,11 @@ function AddAnimal() {
                             label="Genre"
                             onChange={(event) => setAnimalToAdd({ ...animalToAdd, class_name: event.target.value })}
                         >
-                            <MenuItem value={className.mammal}>Mammal</MenuItem>
-                            <MenuItem value={className.bird}>Bird</MenuItem>
-                            <MenuItem value={className.fish}>Fish</MenuItem>
-                            <MenuItem value={className.Reptile}>Reptile</MenuItem>
-                            <MenuItem value={className.Amphibian}>Amphibian</MenuItem>
+                            <MenuItem value={classOfAnimal.Mammal}>Mammal</MenuItem>
+                            <MenuItem value={classOfAnimal.Bird}>Bird</MenuItem>
+                            <MenuItem value={classOfAnimal.Fish}>Fish</MenuItem>
+                            <MenuItem value={classOfAnimal.Reptile}>Reptile</MenuItem>
+                            <MenuItem value={classOfAnimal.Amphibian}>Amphibian</MenuItem>
                         </Select>
                     </FormControl>
                 </div> <br />

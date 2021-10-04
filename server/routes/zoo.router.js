@@ -15,12 +15,13 @@ router.post('/', (req, res) => {
     const animalInfo = req.body;
     queryText = `INSERT INTO "species" ("species_name", "class_id")
     VALUES ($1,$2)`;
-    pool.query(queryText,[animalInfo.species_name, animalInfo.class_id])
-}).then(result => {
+    pool.query(queryText,[animalInfo.species_name, animalInfo.class_name])
+    .then(result => {
     res.sendStatus(200);
 }).catch(err => {
     console.log('There was an error posting to the database', err);
     res.sendStatus(500)
+})
 })
 
 

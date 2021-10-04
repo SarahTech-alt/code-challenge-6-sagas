@@ -22,7 +22,7 @@ function* addNewAnimal(action) {
     try {
         const animalToAdd = action.payload;
         console.log(action.payload);
-        yield axios.post('/', animalToAdd);
+        yield axios.post('/zoo', animalToAdd);
         yield put('GET_ZOO_ANIMALS')
     } catch {
         (error) => {
